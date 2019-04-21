@@ -91,7 +91,7 @@ namespace BootCamp.Controllers
         // 블로그 작성
         // URL : /Blog/BlogInsert
         [HttpPost]
-        public String BlogInsert([FromBody] Blog blog)
+        public IActionResult BlogInsert([FromBody] Blog blog)
         {
             if (!ModelState.IsValid)
             {
@@ -102,7 +102,7 @@ namespace BootCamp.Controllers
                 // 해당되는 Blog Insert
                 _BlogContext.Blog.Add(blog);
                 _BlogContext.SaveChanges();
-                return StatusCode(200, "OK")
+                return StatusCode(200, "OK");
             }
 
         }
